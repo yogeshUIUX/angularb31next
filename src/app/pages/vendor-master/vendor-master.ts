@@ -11,7 +11,7 @@ import { MyButton } from "../../reusabeeComp/my-button/my-button";
 
 @Component({
   selector: 'app-vendor-master',
-  imports: [FormsModule, JsonPipe, AlertBox, Tabs, ShowMoreShowLess, MyButton],
+  imports: [FormsModule, AlertBox, Tabs, ShowMoreShowLess, MyButton],
   templateUrl: './vendor-master.html',
   styleUrl: './vendor-master.css'
 })
@@ -25,14 +25,14 @@ export class VendorMaster implements OnInit {
   // };
   title = "Warning"
 
-  newVendorObj : NewVendor = new NewVendor();
+  newVendorObj: NewVendor = new NewVendor();
 
   vendorObj!: INewVendor;
 
   studentObj: any = {
-    name:'ABC',
-     
-    skills: ['Angular','Css','Html']
+    name: 'ABC',
+
+    skills: ['Angular', 'Css', 'Html']
   }
 
   vendorList: NewVendor[] = [];
@@ -48,19 +48,19 @@ export class VendorMaster implements OnInit {
 
   getSelectedTabName(tabNAme: string) {
     debugger;
-    this.selectedTabName =  tabNAme;
+    this.selectedTabName = tabNAme;
   }
 
   getAllClient() {
-     debugger;
+    debugger;
     this.masterService.getAllClinet().subscribe({
-      next:(res:any)=> {
+      next: (res: any) => {
         debugger;
       }
     })
   }
 
-   
+
 
   chnageName(form: NgForm) {
     debugger;

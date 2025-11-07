@@ -9,9 +9,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class GetAPI implements OnInit {
 
-  deptList: any [] = [];
-  designationList: any[]= [];
-  empList: any[]=[];
+  deptList: any[] = [];
+  designationList: any[] = [];
+  empList: any[] = [];
   selectedDeptId: number = 0;
 
   http = inject(HttpClient);
@@ -24,24 +24,27 @@ export class GetAPI implements OnInit {
     this.getAllEmployee()
   }
 
- 
+
 
   getAllDepratments() {
     debugger;
-    this.http.get("https://api.freeprojectapi.com/api/EmployeeApp/GetDepartments").subscribe((result:any)=>{
-       debugger;
+    // this.http.get("https://api.freeprojectapi.com/api/EmployeeApp/GetDepartments").subscribe((result:any)=>{
+    //    debugger;
+    //   this.deptList = result;
+    // })
+    this.http.get("https://api.freeprojectapi.com/api/EmployeeApp/GetDepartments").subscribe((result: any) => {
       this.deptList = result;
     })
   }
 
   getDesignationByDeptId() {
-    this.http.get("https://api.freeprojectapi.com/api/EmployeeApp/GetDesignationsByDeptId?deptId=" + this.selectedDeptId).subscribe((result:any)=>{
+    this.http.get("https://api.freeprojectapi.com/api/EmployeeApp/GetDesignationsByDeptId?deptId=" + this.selectedDeptId).subscribe((result: any) => {
       this.designationList = result;
     })
   }
   getAllEmployee() {
-    this.http.get("https://api.freeprojectapi.com/api/EmployeeApp/GetEmployees").subscribe((res:any)=>{
-      this.empList =  res;
+    this.http.get("https://api.freeprojectapi.com/api/EmployeeApp/GetEmployees").subscribe((res: any) => {
+      this.empList = res;
     })
   }
 
